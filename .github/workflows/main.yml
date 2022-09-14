@@ -90,11 +90,15 @@ jobs:
           find deploy -type f -iname "*.sh" -exec chmod 755 {} \;
         working-directory: ${{env.RELEASE_BRANCH}}
       - name: Commit and push
+        env:
+          USER_NAME: ${{ github.event.pusher.name }}
+          EMAIL: ${{ github.event.pusher.email }}
+          MESSAGE: ${{ github.event.head_commit.message }}
         run: |
-          git config user.name ${{ github.event.pusher.name }}
-          git config user.email ${{ github.event.pusher.email }}
+          git config user.name "$USER_NAME"
+          git config user.email "$EMAIL"
           git add . -A
-          git commit -m "${{ github.event.head_commit.message }}"
+          git commit -m "'$MESSAGE'"
           git push
         working-directory: ${{env.RELEASE_BRANCH}}
 
@@ -131,10 +135,14 @@ jobs:
           cp -r ../artifacts/dist .
         working-directory: ${{env.DOCS_BRANCH}}
       - name: Commit and push
+        env:
+          USER_NAME: ${{ github.event.pusher.name }}
+          EMAIL: ${{ github.event.pusher.email }}
+          MESSAGE: ${{ github.event.head_commit.message }}
         run: |
-          git config user.name ${{ github.event.pusher.name }}
-          git config user.email ${{ github.event.pusher.email }}
+          git config user.name "$USER_NAME"
+          git config user.email "$EMAIL"
           git add . -A
-          git commit -m "${{ github.event.head_commit.message }}"
+          git commit -m "'$MESSAGE'"
           git push
         working-directory: ${{env.DOCS_BRANCH}}
