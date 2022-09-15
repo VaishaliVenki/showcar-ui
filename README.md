@@ -45,7 +45,7 @@ From master branch
 
     yarn build
 
-If you see after unning build some files in dist please commit it
+If you see after running build some files in dist please commit it
 
     npm version patch|minor|major
     npm publish
