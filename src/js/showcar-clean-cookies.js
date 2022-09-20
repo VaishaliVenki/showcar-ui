@@ -61,7 +61,8 @@ const whiteList = [
     'last-5-seen-classifieds',
     'combined-leads',
     'rmStoreGateway',
-    'IDP'
+    'IDP',
+    'abtest210'
 ];
 
 const deleteCookieByName = function(cookie) {
