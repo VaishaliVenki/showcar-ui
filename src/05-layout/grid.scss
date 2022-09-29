@@ -6,7 +6,6 @@
 .sc-content-container {
   @include container;
   position: relative;
-  overflow-x: hidden;
   box-sizing: content-box;
 }
 
