@@ -62,7 +62,9 @@ const whiteList = [
     'combined-leads',
     'rmStoreGateway',
     'IDP',
-    'abtest210'
+    'abtest210',
+    'as24-cmp-signature',
+    'show-as24-cmp'
 ];
 
 const deleteCookieByName = function(cookie) {
